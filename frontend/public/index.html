@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
+    <meta name="theme-color" content="#000032"/>
     <meta
       name="description"
       content="Web site created using create-react-app"
@@ -27,17 +27,59 @@
     <title>React App</title>
   </head>
   <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
+  <noscript>You need to enable JavaScript to run this app.</noscript>
 
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
+  <!-- React mounts here -->
+  <div id="root"></div>
 
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
-  </body>
+  <!-- Loading overlay until React mounts -->
+  <div
+    id="app-loader"
+    style="
+      position:fixed; inset:0; display:grid; place-items:center;
+      background:#000032; color:#fff;
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif;
+      z-index:9999;
+    "
+    aria-hidden="true"
+  >
+    <div role="status" aria-live="polite" style="text-align:center;">
+      <!-- Simple spinner (no external CSS needed) -->
+      <svg width="40" height="40" viewBox="0 0 38 38" xmlns="http://www.w3.org/2000/svg" aria-label="Loading">
+        <g fill="none" fill-rule="evenodd">
+          <g transform="translate(1 1)" stroke="currentColor" stroke-width="2">
+            <circle stroke-opacity=".2" cx="18" cy="18" r="18"/>
+            <path d="M36 18c0-9.94-8.06-18-18-18">
+              <animateTransform attributeName="transform" type="rotate" from="0 18 18" to="360 18 18" dur="0.8s" repeatCount="indefinite"/>
+            </path>
+          </g>
+        </g>
+      </svg>
+
+      <div style="margin-top:12px; font-weight:700; letter-spacing:.3px;">
+        Construction Site Safety Monitoring System
+      </div>
+      <div style="margin-top:6px; opacity:.85; font-size:14px;">
+        Loading dashboard…
+      </div>
+    </div>
+  </div>
+
+  <!-- Hide loader once the app has loaded -->
+  <script>
+    (function () {
+      function hideLoader() {
+        var el = document.getElementById('app-loader');
+        if (el) el.style.display = 'none';
+      }
+      if (document.readyState === 'complete') {
+        requestAnimationFrame(hideLoader);
+      } else {
+        window.addEventListener('load', hideLoader);
+        // Fallback: hide after timeout in case 'load' doesn't fire
+        setTimeout(hideLoader, 6000);
+      }
+    })();
+  </script>
+</body>
 </html>
