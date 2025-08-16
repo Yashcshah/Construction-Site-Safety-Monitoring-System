@@ -40,7 +40,7 @@ jobs:
         echo "Secret 3 is: $PORT"
         
    
-    - name: Install PM2
+    - name: Install PM2 #update
       run: npm install -g pm2
       
 
