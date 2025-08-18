@@ -3,6 +3,7 @@ const router = require('express').Router();
 const Task = require('../models/Task');
 const { auth } = require('../middleware/authMiddleware');
 
+
 router.post('/', auth, async (req,res)=> {
   const task = await Task.create({ ...req.body, owner: req.user.id });
   res.status(201).json(task);
