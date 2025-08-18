@@ -92,4 +92,14 @@ https://github.com/Yashcshah/Construction-Site-Safety-Monitoring-System
 5.5 Provide a screenshot of the “Run Test” page from GitHub (	where the job is running, and you can see the steps are passing 	or failing)
 <img width="940" height="94" alt="image" src="https://github.com/user-attachments/assets/05c54825-c282-4254-a90b-2e573601b075" />
 
+ 5.6 Provide the images of the feature of the web app
+ ![Screenshot 2025-08-18 195923](https://github.com/user-attachments/assets/c09b8018-e66f-4d70-b599-6537c371
  
+ ![Screenshot 2025-08-18 195904](https://github.com/user-attachments/assets/2ac73a6c-7c5a-4748-af77-26238893f0ab)
+a05a)
+
+ 
+ ![Screenshot 2025-08-18 195843](https://github.com/user-attachments/assets/d5256f5f-a547-441d-8e76-12f040d1469c)
+
+
+
