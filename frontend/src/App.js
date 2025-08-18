@@ -20,4 +20,3 @@ function App() {
 }
 
 export default App;
-app.use('/api/incidents', require('./routes/incidentRoutes'));
