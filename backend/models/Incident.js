@@ -1,18 +1,27 @@
+// models/Incident.js
 const mongoose = require('mongoose');
 
-const incidentSchema = new mongoose.Schema(
-  {
-    userId: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true, index: true },
-    title: { type: String, required: true, trim: true },
-    description: { type: String, trim: true },
-    severity: { type: String, enum: ['Low', 'Medium', 'High', 'Critical'], required: true },
-    location: { type: String, required: true },
-    reportedAt: { type: Date, default: Date.now },
-    deadline: { type: Date },         // follow your Task shape
-    resolved: { type: Boolean, default: false },
-    photos: [{ type: String }],       // S3/URL strings if you add uploads later
-  },
-  { timestamps: true }
-);
+const EvidenceSchema = new mongoose.Schema({
+  kind: { type: String, enum: ['photo','video','doc'], required: true },
+  url: String,
+  note: String
+},{ _id:false });
 
-module.exports = mongoose.model('Incident', incidentSchema);
+const IncidentSchema = new mongoose.Schema({
+  title: { type: String, required: true },
+  type: { type: String, enum: ['Incident','Hazard'], required: true },
+  site: { type: String, required: true },                // e.g. "LOT 731 Walker St"
+  severity: { type: String, enum: ['Low','Med','High','Critical'], default: 'Low' },
+  status: { type: String, enum: ['Open','In Progress','Resolved','Closed'], default: 'Open' },
+  description: String,
+  reportedBy: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
+  assignee: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
+  actions: [{
+    at: { type: Date, default: Date.now },
+    by: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
+    note: String
+  }],
+  evidences: [EvidenceSchema]
+}, { timestamps: true });
+
+module.exports = mongoose.model('Incident', IncidentSchema);

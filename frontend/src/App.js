@@ -4,6 +4,8 @@ import Login from './pages/Login';
 import Register from './pages/Register';
 import Profile from './pages/Profile';
 import Tasks from './pages/Tasks';
+import Incidents from './pages/Incidents';
+import Compliance from './pages/Compliance';
 
 function App() {
   return (
@@ -14,10 +16,12 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/tasks" element={<Tasks />} />
+        <Route path="/incidents" element={<Incidents />} />
+        <Route path="/compliance" element={<Compliance />} /> 
       </Routes>
     </Router>
   );
 }
 
 export default App;
-app.use('/api/incidents', require('./routes/incidentRoutes'));
+
