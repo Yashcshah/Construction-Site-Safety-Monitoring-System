@@ -15,8 +15,7 @@ app.use('/api/auth', require('./routes/authRoutes'));
 app.use(express.json());
 app.use('/api/incidents', require('./routes/incidentRoutes'));
 app.get('/api/health', (_, res) => res.json({ ok: true }));
-const taskRoutes = require('./routes/taskRoutes');
-app.use('/api/tasks', taskRoutes);
+
 
 //app.use('/api/tasks', require('./routes/taskRoutes'));
 

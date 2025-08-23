@@ -36,8 +36,9 @@ const Tasks = () => {
   };
 
   useEffect(() => {
-    if (user?.token) fetchTasks();
-  }, [user?.token]); // re-fetch if user changes
+  fetchTasks();
+}, []); // <--- empty dependency array
+
 
   // Create task
   const handleSubmit = async (e) => {
