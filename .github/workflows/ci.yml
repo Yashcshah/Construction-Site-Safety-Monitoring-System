@@ -38,11 +38,10 @@ jobs:
         echo "Secret 1 is: $MONGO_URI"
         echo "Secret 2 is: $JWT_SECRET"
         echo "Secret 3 is: $PORT"
-        
-   
+      
+    
     - name: Install PM2 #update
       run: npm install -g pm2
-      
 
     # Install dependencies for backend
     - name: Install Backend Dependencies
