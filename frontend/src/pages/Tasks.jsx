@@ -39,6 +39,7 @@ const Tasks = () => {
   fetchTasks();
 }, []); // <--- empty dependency array
 
+
   // Create task
   const handleSubmit = async (e) => {
     e.preventDefault();
